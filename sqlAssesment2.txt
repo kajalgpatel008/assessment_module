@@ -1,0 +1,22 @@
+Task 1-   SELECT 
+    country.country_name,
+    city.city_name,
+    customer.customer_name
+FROM 
+    country
+LEFT JOIN 
+    city ON country.country_id = city.country_id
+LEFT JOIN 
+    customer ON city.city_id = customer.city_id;
+
+
+Task 2-   SELECT 
+    country.country_name,
+    city.city_name,
+    customer.customer_name
+FROM 
+    country
+INNER JOIN 
+    city ON country.country_id = city.country_id
+LEFT JOIN 
+    customer ON city.city_id = customer.city_id;
