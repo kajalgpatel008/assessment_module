@@ -1,0 +1,17 @@
+1- SELECT pro_name, pro_price
+FROM product
+WHERE pro_price >= 250
+ORDER BY pro_price DESC, pro_name ASC;
+
+2- SELECT pro_name, pro_price
+FROM product
+WHERE pro_price = (
+    SELECT MIN(pro_price) FROM product
+);
+
+3- SELECT pro_code AS company_code, AVG(pro_price) AS average_price
+FROM product
+GROUP BY pro_code;
+
+4- SELECT AVG(pro_price) AS average_total_price
+FROM product;
