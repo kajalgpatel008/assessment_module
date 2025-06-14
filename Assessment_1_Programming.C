@@ -110,7 +110,7 @@ int main()
 
     do {
 	printf("\nEnter a string: ");
-	scanf("%s",&s1);      //accepts full line with spaces
+	scanf(" %[^\n]", &s1);      //accepts full line with spaces
 
 	printf("\nChoose an operation:\n");
 	printf("1. Reverse the string\n");
