@@ -1,15 +1,12 @@
 
 """
 E-Notebook Console-Based Application
-Author: Kajal Patel
-Description: This is a Python-based console application to manage notes with file handling.
-Operations: Generate Note, View Note, Exit
 """
 
 import os
 import datetime
 
-# File where notes will be stored
+
 NOTES_FILE = "notes.txt"
 LOG_FILE = "log.txt"
 
@@ -17,7 +14,7 @@ LOG_FILE = "log.txt"
 def display_menu():
     """Display the main menu to the user."""
     print("\n" + "="*40)
-    print("       📘 PYTHON E-NOTEBOOK 📘")
+    print(" PYTHON E-NOTEBOOK ")
     print("="*40)
     print("1. Generate Note")
     print("2. View Notes")
@@ -26,8 +23,8 @@ def display_menu():
 
 
 def generate_note():
-    """Allow the user to enter and save a note."""
-    print("\n--- 📝 Generate a New Note ---")
+    
+    print("\n---  Generate a New Note ---")
     while True:
         name = input("Enter E-Note Generator Name: ").strip()
         if not name.replace(" ","").isalpha():
@@ -38,7 +35,7 @@ def generate_note():
     content = input("Enter E-Note Content: ").strip()
 
     if not title or not content:
-        print("⚠ Title and content cannot be empty! Try again.")
+        print(" Title and content cannot be empty! Try again.")
         return
 
     try:
@@ -51,16 +48,16 @@ def generate_note():
         with open(LOG_FILE, 'a', encoding='utf-8') as log:
             log.write(f"Note Created - Title: {title} at {datetime.datetime.now()}\n")
 
-        print("✅ Note saved successfully!")
+        print(" Note saved successfully!")
     except Exception as e:
-        print(f"❌ Error saving note: {e}")
+        print(f" Error saving note: {e}")
 
 
 def view_notes():
     """Display all saved notes."""
-    print("\n--- 📖 Viewing All Notes ---")
+    print("\n---Viewing All Notes ---")
     if not os.path.exists(NOTES_FILE):
-        print("📭 No notes found.")
+        print("No notes found.")
         return
 
     try:
@@ -69,13 +66,12 @@ def view_notes():
             if content.strip():
                 print(content)
             else:
-                print("📭 No notes available.")
+                print("No notes available.")
     except Exception as e:
-        print(f"❌ Error reading notes: {e}")
+        print(f"Error reading notes: {e}")
 
 
 def main():
-    """main function use to run in loop"""
     while True:
         display_menu()
         choice = input("Enter your choice (1-3): ").strip()
@@ -85,13 +81,12 @@ def main():
         elif choice == '2':
             view_notes()
         elif choice == '3':
-            print("👋 Thank you for using E-Notebook. Goodbye!")
+            print("Thank you for using E-Notebook. Goodbye!")
             break
         else:
-            print("⚠ Invalid option!Please try again.")
+            print("Invalid option!Please try again.")
 
 
-#entry point
 
 if __name__=="__main__":
     main()
